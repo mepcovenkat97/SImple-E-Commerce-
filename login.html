@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+         <link rel="stylesheet" href="login.css">
+         <script type = "text/javascript" src = "authenticate.js" ></script>
+   </head>
+   <body>
+      <div class="container">
+         <h3>Login</h3>
+         <div class="row">
+            <div class="left">
+               <label class="labels" for="username">E-Mail ID</label><br>
+               <input type="email" id="username" name="username" class="inputs" placeholder="E-Mail ID" required>
+            </div>
+            <div class="right">
+               <label class="labels" for="password">Password</label><br>
+               <input id="password" type="password" name="password" class="inputs" placeholder="Password" required>
+            </div>
+         </div>
+         <button class="buttons" type="submit" onclick="login()">Submit</button><br><br>
+         <a href="signin.html">Don't have an Account?</a>
+      </div>
+   </body>
+</html>

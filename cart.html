@@ -1,0 +1,125 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="cart.css">
+      <script type = "text/javascript" src = "authenticate.js" ></script>
+   </head>
+
+   <style>
+ .flex-container{
+       display: flex;
+       flex-wrap: wrap;
+       margin: 25px;
+       justify-content: center;
+       max-width: 1255px;
+ }
+ .flex-container > div {
+  /*background-color: #f1f1f1;*/
+  background-color: white;
+  width: 25%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+label{
+      margin-left: 25px;
+      margin-right: 25px;
+      font-size: 25px;
+}
+@media (max-width:360px){
+      .flex-container > div{
+            width: 100%;
+      }
+}
+
+   </style>
+<body onload="start()">
+   <header class="header">
+   		<h1 class="logo"><a href="#">Betta Bazaar</a></h1>
+         <ul class="main-nav">
+                  <li></li>
+                  <li><a id="loginhref" href="login.html"><label id="user_name">&nbsp;</label></a></li>
+         </ul>
+   </header>
+   <h2>My Cart</h2>
+   
+   <div>
+         <!--<div class="items item1">
+               <div class="gcontainer">
+                     
+                     <div class="gitem4">
+                           <div class="gitem2 image"><img src="images/halfmoon.jpeg"></div>
+                           <div class="gitem1">Halfmoon Male</div>
+                           <div class="gitem3">
+                                 <div class="itemOne">Rs 100</div>
+                                 <div class="itemTwo"><button class="pbutton">+</button><input type="number" id="quantity" value="1"><button class="nbutton">-</button></div>
+                           </div>
+                               <button class="buttons" type="submit">Remove from Cart</button>
+                     </div>
+                   </div>
+         </div>
+         <hr>
+         <div class="items item2">
+               <div class="gcontainer">  
+                     
+                     <div class="gitem4">
+                           <div class="gitem2 image"><img src="images/crowntail.jpg"></div>
+                           <div class="gitem1">Crowntail Male</div>
+                           <div class="gitem3">
+                                 <div class="itemOne">Rs 100</div>
+                                 <div class="itemTwo"><button class="pbutton">+</button><input type="number" id="quantity" value="1"><button class="nbutton">-</button></div>
+                           </div>
+                           <button class="buttons" type="submit">Add from Cart</button>
+                     </div>
+                   </div>
+         </div>
+         <hr>
+         <div class="items item3">
+               <div class="gcontainer">
+                     
+                     
+                     <div class="gitem4">
+                           <div class="gitem2 image"><img src="images/doubletail.jpg"></div>
+                           <div class="gitem1">Double Tail Male</div>
+                           <div class="gitem3">
+                                 <div class="itemOne">Rs 100</div>
+                                 <div class="itemTwo"><button class="pbutton">+</button><input type="number" id="quantity" value="1"><button class="nbutton">-</button></div>
+                           </div>
+                           <button class="buttons" type="submit">Add from Cart</button>
+                     </div>  
+               </div>
+         </div>
+         <hr>
+         <div class="gitem4">
+            <button class="buttons">Confirm<br>Purchase</button> <br><br>
+        </div>-->
+        <div class="flex-container" id="flex-container">
+              <!--<div>
+                  <div class="items item1">
+                        <div class="gcontainer">
+                              <div class="gitem4">
+                                    <div class="gitem2 image"><img src="images/halfmoon.jpeg"></div>
+                                    <div class="gitem1">Halfmoon Male</div>
+                                    <div class="gitem3">
+                                          <div class="itemOne">Rs 100</div>
+                                          <div class="itemTwo"><button class="nbutton">-</button><label id="quantity" value="1">1</label><button class="pbutton">+</button></div>
+                                    </div>
+                                        <button class="buttons" type="submit">Remove from Cart</button>
+                              </div>
+                            </div>
+                  </div>
+              </div>-->
+        </div>
+        <div class="gitem4">
+            <button class="buttons" onclick="save_and_continue()">Confirm<br>Purchase</button> <br><br>
+        </div>
+   </div>
+
+
+
+
+
+   
+</body>
+</html>

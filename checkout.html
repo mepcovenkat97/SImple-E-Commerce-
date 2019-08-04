@@ -1,0 +1,83 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="checkout.css">
+      <script type = "text/javascript" src = "authenticate.js" ></script>
+   </head>
+   <style>
+.buttons{
+ width: 25%;
+ height: 25%;
+ background: blue;
+ border-radius: 5px;
+ color: aliceblue;
+ font-weight: 1000;
+}
+   </style>
+<body onload="stop()">
+   <header class="header">
+   		<h1 class="logo"><a href="#">Betta Bazaar</a></h1>
+         <ul class="main-nav">
+             <li><a id="carthref" href="cart.html">Cart</a></li>
+             <li><a id="loginhref" href="login.html"><label id="user_name">Login</label></a></li>
+         </ul>
+   </header>
+  <!-- <div class="container">
+         <div class="items item1">
+               <div class="sgcontainer">
+                     <div class="gitem2 image"><img src="images/halfmoon.jpeg"></div>
+                     <div class="gitem4">
+                           <div class="gitem2 image"></div>
+                           <div class="gitem1">Total Products : <label id="product_count">1</label></div>
+                           <div class="gitem3">
+                                 <div class="itemOne">Total Amount : <label id="total_amount">1</label></div>
+                                 <div class="itemTwo">Address&nbsp;:<input id="address" type="text" placeholder="Address"></div>
+                           </div>
+                               <button class="buttons" type="submit">Order</button>
+                     </div>
+                     
+                   </div>
+         </div>
+   </div>-->
+   <table>
+      <caption>Order Summary</caption>
+      <thead>
+        <tr>
+          <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody id="tcontainer">
+       <!-- <tr>
+          <td data-label="Product Name">Visa - 3412</td>
+          <td data-label="Price">04/01/2016</td>
+          <td data-label="Quantity">$1,190</td>
+          <td data-label="Amount">03/01/2016 - 03/31/2016</td>
+        </tr>
+        <tr>
+          <td scope="row" data-label="Product Name">Visa - 6076</td>
+          <td data-label="Price">03/01/2016</td>
+          <td data-label="Quantity">$2,443</td>
+          <td data-label="Amount">02/01/2016 - 02/29/2016</td>
+        </tr>
+        <tr>
+          <td scope="row" data-label="Product Name">Corporate AMEX</td>
+          <td data-label="Price">03/01/2016</td>
+          <td data-label="Quantity">$1,181</td>
+          <td data-label="Amount">02/01/2016 - 02/29/2016</td>
+        </tr>
+        <tr>
+          <td scope="row" data-label="Product Name">Visa - 3412</td>
+          <td data-label="Price">02/01/2016</td>
+          <td data-label="Quantity">$842</td>
+          <td data-label="Amount">01/01/2016 - 01/31/2016</td>
+        </tr>-->
+      </tbody>
+    </table>
+    <br>
+    <span>Address : </span><textarea rows="4" placeholder="Address for Delivery"></textarea>
+<br>
+    <button class="buttons" onclick="logout()"> Logout </button>
+</body>
+</html>
