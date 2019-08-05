@@ -167,8 +167,8 @@ function generateCart()
                <div class="gitem2 image"><img src="${products[product_id_array[j]-1].source}"></div>
                <div class="gitem1">${products[product_id_array[j]-1].name}</div>
                <div class="gitem3">
-                  <div class="itemOne">Rs<label id="val">${products[product_id_array[j]-1].price}</label></div>
-                  <div class="itemTwo"> <button class="nbutton" onclick="reduceQty(${j})">-</button><label id="${j}">1</label> <button class="pbutton" onclick="increaseQty(${j,products[product_id_array[j]-1].price,"val"})">+</button></div>
+                  <div class="itemOne">Rs<label>${products[product_id_array[j]-1].price}</label></div>
+                  <div class="itemTwo"> <button class="nbutton" id="btn-minus-${products[j].id}">-</button><label id="label-${products[j].id}">1</label> <button class="pbutton" id="btn-plus-${products[j].id}" >+</button></div>
                </div>
                <button id="${j}-remove" class="buttons" type="submit" onclick="removeItem('${j}')">Remove from Cart</button>
                </div>
@@ -179,6 +179,43 @@ function generateCart()
           htmlele += data;
       }
       document.getElementById("flex-container").innerHTML += htmlele;
+
+      for(let i=0; i<products.length; i++){
+         let label = document.getElementById("label-"+products[i].id);
+         document.getElementById("btn-minus-"+products[i].id).onclick = function(e){
+            if(label.innerHTML >1)
+            {
+               label.innerHTML = parseInt(label.innerHTML) - 1;
+               let reduceqty = JSON.parse(localStorage.getItem('Users') || []);
+               for(var i=0;i<reduceQty.length;i++)
+               {
+                  if(sessionStorage.getItem('currUserEmail') == reduceqty[i].email)
+                  {
+                     reduceqty[i].qty[i] -= 1;
+                     break;
+                  }
+               }
+               localStorage.setItem('Users',JSON.stringify(reduceqty));
+            }
+            else{
+               window.alert("You cannot reduce the Quantity further Below");
+            }
+            
+         }
+         document.getElementById("btn-plus-"+products[i].id).onclick = function(e){
+            label.innerHTML = parseInt(label.innerHTML) + 1;
+            let reduceqty = JSON.parse(localStorage.getItem('Users') || []);
+            for(var i=0;i<reduceQty.length;i++)
+               {
+                  if(sessionStorage.getItem('currUserEmail') == reduceqty[i].email)
+                  {
+                     reduceqty[i].qty[i] += 1;
+                     break;
+                  }
+               }
+               localStorage.setItem('Users',JSON.stringify(reduceqty));
+         }
+      }
    }
    else{
       window.alert("Hai");
@@ -207,15 +244,26 @@ function removeItem(id)
 function reduceQty(id){
    if(document.getElementById(id).innerHTML > 1){
       document.getElementById(id).innerHTML -= 1 ;
+      let reduceqty = JSON.parse(localStorage.getItem('Users') || []);
+      for(var i=0;i<reduceQty.length;i++)
+      {
+         if(sessionStorage.getItem('currUserEmail') == reduceqty[i].email)
+         {
+            reduceqty[i].qty[id] -= 1;
+            break;
+         }
+      }
+      localStorage.setItem('Users',JSON.stringify(reduceqty));
    }
    else{
       window.alert("You cannot reduce the Quantity further Below");
    }
 }
 
-function increaseQty(id,price,val){
-      document.getElementById(id).innerHTML = parseInt(document.getElementById(id).innerHTML) + 1;
-      document.getElementById(val).innerHTML = price;
+function increaseQty(price,id){
+   console.log(id);
+      // document.getElementById(id).innerHTML = parseInt(document.getElementById(id).innerHTML) + 1;
+      // document.getElementById(id).innerHTML = price;
 }
 
 
@@ -257,12 +305,15 @@ function checkout()
 }
 
 function logout(){
-   var n = sessionStorage.length;
+  /* var n = sessionStorage.length;
 while(n--) {
   var key = sessionStorage.key(n);
   if(/curr/.test(key)) {
     sessionStorage.removeItem(key);
   }  
-}
+}*/
+sessionStorage.removeItem('currUserName');
+sessionStorage.removeItem('currUserEmail');
+sessionStorage.removeItem('isAuthenticated');
 window.location = "product.html";
 }
